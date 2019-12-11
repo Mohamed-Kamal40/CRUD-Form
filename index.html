@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/index_style.css" />
+  </head>
+
+  <body>
+    <div class="container py-3 bg-light">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 form-group ">
+          <label for="productName">Product Name :</label>
+          <input
+            onkeyup="chekNamekVal(this.value)"
+            type="text"
+            id="productName"
+            class="form-control"
+          />
+          <small class="text-muted"
+            >Must start with a Capital and be 3-8 characters long</small
+          >
+        </div>
+        <div class="col-md-6 col-sm-12 form-group ">
+          <label for="productPrice">Product Price :</label>
+          <input
+            onkeyup="chekPriceVal(this.value)"
+            type="number"
+            id="productPrice"
+            class="form-control"
+          />
+          <small class="text-muted">Must be at least 1$ up to 10000$</small>
+        </div>
+        <div class="col-md-4 col-sm-5 d-flex align-items-center ">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="noSale"
+              name="sales"
+              checked
+            />
+            <label class="custom-control-label" for="noSale">no Sale</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="Sale"
+              name="sales"
+            />
+            <label class="custom-control-label" for="Sale">Sale</label>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-7 form-group ">
+          <label for="productQuantity">Product Quantity :</label>
+          <input
+            onkeyup="chekQuantVal(this.value)"
+            type="number"
+            id="productQuantity"
+            class="form-control"
+          />
+          <small class="text-muted"
+            >Quantity by Number of Pieces at least 1 to 1000</small
+          >
+        </div>
+        <div class="col-md-4 col-sm-12 ">
+          <label for="productCategory">Product Category :</label>
+          <select
+            onchange="categoryVal(this.value)"
+            id="productCategory"
+            class="custom-select"
+          >
+            <option selected disabled value="">Choose...</option>
+            <option value="tvs">TVs</option>
+            <option value="computers">Computers</option>
+            <option value="laptops">Laptops</option>
+            <option value="mobiles">Mobiles</option>
+            <option value="tablets">Tablets</option>
+          </select>
+          <small class="text-muted">Device Type</small>
+        </div>
+        <div class="col-12 form-group ">
+          <label for="producDesc">Product Description</label>
+          <textarea rows="3" class="form-control" id="producDesc"></textarea>
+          <small class="text-muted"
+            >Give a Bref Description aboute The Product</small
+          >
+        </div>
+        <div class="pl-3 pt-5">
+          <button
+            
+            class="btn btn-outline-success"
+            id="addPro"
+            type="submit"
+          >
+            Add Product
+          </button>
+                    <button
+                        class="btn btn-success d-none"
+            id="updatePro"
+            type="submit"
+          >
+            Update Product
+          </button>
+          <button class="btn btn-warning" id="clrData" type="reset">
+            Clear Data
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5 bg-dark">
+      <h2 class="text-center text-white">All Products</h2>
+      <input
+        onkeyup="searchPro(this.value)"
+        type="text"
+        class="form-control w-50 mx-auto my-2"
+      />
+      <div class="row" id="displayProducts"></div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+.disInfo {
+  position: relative;
+}
+.sale {
+  background-color: tomato;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  padding: 10px;
+  font-weight: 600;
+}
