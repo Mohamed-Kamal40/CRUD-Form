@@ -6,7 +6,15 @@
   </head>
 
   <body>
-    <div class="container py-3 bg-light">
+    <div class=" text-dark container">
+      <h1 class="text-center">CRUD Form</h1>
+      <p class="warning">
+        <strong>Note:</strong> consider the regular expression of each input and
+        please consider that this form is using Local Storage of the browser to
+        store Products
+      </p>
+    </div>
+    <div class="container py-3 bg-light div1">
       <div class="row">
         <div class="col-md-6 col-sm-12 form-group ">
           <label for="productName">Product Name :</label>
@@ -17,7 +25,7 @@
             class="form-control"
           />
           <small class="text-muted"
-            >Must start with a Capital and be 3-8 characters long</small
+            >Must start with an Upper case and be 3-8 characters long</small
           >
         </div>
         <div class="col-md-6 col-sm-12 form-group ">
@@ -65,11 +73,7 @@
         </div>
         <div class="col-md-4 col-sm-12 ">
           <label for="productCategory">Product Category :</label>
-          <select
-            onchange="categoryVal(this.value)"
-            id="productCategory"
-            class="custom-select"
-          >
+          <select id="productCategory" class="custom-select">
             <option selected disabled value="">Choose...</option>
             <option value="tvs">TVs</option>
             <option value="computers">Computers</option>
@@ -87,19 +91,10 @@
           >
         </div>
         <div class="pl-3 pt-5">
-          <button
-            
-            class="btn btn-outline-success"
-            id="addPro"
-            type="submit"
-          >
+          <button class="btn btn-outline-success" id="addPro" type="submit">
             Add Product
           </button>
-                    <button
-                        class="btn btn-success d-none"
-            id="updatePro"
-            type="submit"
-          >
+          <button class="btn btn-success d-none" id="updatePro" type="submit">
             Update Product
           </button>
           <button class="btn btn-warning" id="clrData" type="reset">
@@ -109,8 +104,8 @@
       </div>
     </div>
 
-    <div class="container my-5 bg-dark">
-      <h2 class="text-center text-white">All Products</h2>
+    <div class="container my-5 bg-light">
+      <h2 class="text-center text-dark text-white">All Products</h2>
       <input
         onkeyup="searchPro(this.value)"
         type="text"

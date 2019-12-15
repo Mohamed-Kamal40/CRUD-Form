@@ -46,17 +46,13 @@ function chekQuantVal(productQuant) {
     return true;
   }
 }
-
-function categoryVal(productCategory) {
-  if (productCategory != "") {
-    // document.getElementById("productCategory").classList.remove("is-invalid");
-    // document.getElementById("productCategory").classList.add("is-valid");
-    document.getElementById("addPro").removeAttribute("disabled");
-  } else {
-    document.getElementById("addPro").disabled = "true";
-    //   document.getElementById("productCategory").classList.remove("is-valid");
-    //   document.getElementById("productCategory").classList.add("is-invalid");
-  }
+function clearStyle() {
+  document.getElementById("productName").classList.remove("is-valid");
+  document.getElementById("productName").classList.remove("is-invalid");
+  document.getElementById("productPrice").classList.remove("is-valid");
+  document.getElementById("productPrice").classList.remove("is-invalid");
+  document.getElementById("productQuantity").classList.remove("is-valid");
+  document.getElementById("productQuantity").classList.remove("is-invalid");
 }
 
 function clearData() {
@@ -69,7 +65,7 @@ function clearData() {
   document.getElementById("productQuantity").value = "";
   document.getElementById("productCategory").selectedIndex = 0;
   document.getElementById("producDesc").value = "";
-  document.getElementById("addPro").disabled = "true";
+  clearStyle();
 }
 
 function deletePro(id) {
@@ -131,18 +127,17 @@ function displayProducts() {
     temp +=
       `<div class="col-lg-4 col-md-6 col-sm-12 p-3">
 <div class="bg-light disInfo">
-  <img class="img-fluid" src="images/iphone.jpg"/>
   <div class="p-2">
     <h3>` +
       productContainer[i].name +
-      `<span class="badge badge-info float-right mt-1">` +
-      productContainer[i].category +
-      `</span></h3>
+      `</h3>
     <p>` +
       productContainer[i].description +
       `</p><h3>` +
       productContainer[i].price +
-      `$</h3>`;
+      `$</h3><span class="badge badge-info float-right mt-1">` +
+      productContainer[i].category +
+      `</span>`;
     if (productContainer[i].saleVal == true) {
       temp += '<div class="sale">sale</div>';
     }
@@ -184,6 +179,7 @@ function add() {
 
   displayProducts();
   clearData();
+  clearStyle();
 }
 
 function searchPro(key) {

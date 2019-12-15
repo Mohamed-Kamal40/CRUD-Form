@@ -1,3 +1,4 @@
+
 .disInfo {
   position: relative;
 }
@@ -9,4 +10,8 @@
   right: 5%;
   padding: 10px;
   font-weight: 600;
+}
+.warning {
+  background-color: #ffffcc;
+  border-left: 6px solid #ffeb3b;
 }
