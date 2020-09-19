@@ -1,5 +1,8 @@
-var productContainer;
-var indx;
+var productContainer,
+  indx,
+  nameVal = false,
+  priceVal = false,
+  quantVal = false;
 
 if (localStorage.getItem("productData") == null) {
   productContainer = [];
@@ -15,11 +18,14 @@ function chekNamekVal(productName) {
   var nameRegex = /^[A-Z][a-z]{2,8}/;
   if (nameRegex.test(productName) == false) {
     document.getElementById("productName").classList.add("is-invalid");
-    return false;
+    nameVal = false;
   } else {
     document.getElementById("productName").classList.remove("is-invalid");
     document.getElementById("productName").classList.add("is-valid");
-    return true;
+    nameVal = true;
+  }
+  if (nameVal && priceVal && quantVal == true) {
+    addptn.removeAttribute("disabled");
   }
 }
 
@@ -27,11 +33,14 @@ function chekPriceVal(productPrice) {
   var priceRegex = /^([1-9][0-9]{0,3}|10000)$/;
   if (priceRegex.test(productPrice) == false) {
     document.getElementById("productPrice").classList.add("is-invalid");
-    return false;
+    priceVal = false;
   } else {
     document.getElementById("productPrice").classList.remove("is-invalid");
     document.getElementById("productPrice").classList.add("is-valid");
-    return true;
+    priceVal = true;
+  }
+  if (nameVal && priceVal && quantVal == true) {
+    addptn.removeAttribute("disabled");
   }
 }
 
@@ -39,13 +48,17 @@ function chekQuantVal(productQuant) {
   var quantRegex = /^([1-9][0-9]{0,2}|1000)$/;
   if (quantRegex.test(productQuant) == false) {
     document.getElementById("productQuantity").classList.add("is-invalid");
-    return false;
+    quantVal = false;
   } else {
     document.getElementById("productQuantity").classList.remove("is-invalid");
     document.getElementById("productQuantity").classList.add("is-valid");
-    return true;
+    quantVal = true;
+  }
+  if (nameVal && priceVal && quantVal == true) {
+    addptn.removeAttribute("disabled");
   }
 }
+
 function clearStyle() {
   document.getElementById("productName").classList.remove("is-valid");
   document.getElementById("productName").classList.remove("is-invalid");
@@ -66,6 +79,7 @@ function clearData() {
   document.getElementById("productCategory").selectedIndex = 0;
   document.getElementById("producDesc").value = "";
   clearStyle();
+  addptn.setAttribute("disabled", "true");
 }
 
 function deletePro(id) {
@@ -94,6 +108,7 @@ function updatePro(id) {
   addptn.classList.add("d-none");
   updtptn.classList.remove("d-none");
 }
+
 function updated() {
   productContainer[indx].name = document.getElementById("productName").value;
   productContainer[indx].price = document.getElementById("productPrice").value;
@@ -172,8 +187,11 @@ function add() {
     saleVal: onSale,
     quantity: productQuantity,
     category: productCategory,
-    description: producDesc
+    description: producDesc,
   };
+  if (nameVal || priceVal || quantVal == false) {
+    return alert("PLEASE ENTER VALID DATA");
+  }
   productContainer.push(product);
   localStorage.setItem("productData", JSON.stringify(productContainer));
 
