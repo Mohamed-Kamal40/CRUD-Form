@@ -19,13 +19,14 @@ function chekNamekVal(productName) {
   if (nameRegex.test(productName) == false) {
     document.getElementById("productName").classList.add("is-invalid");
     nameVal = false;
+    addptn.setAttribute("disabled", "true");
   } else {
     document.getElementById("productName").classList.remove("is-invalid");
     document.getElementById("productName").classList.add("is-valid");
     nameVal = true;
-  }
-  if (nameVal && priceVal && quantVal == true) {
-    addptn.removeAttribute("disabled");
+    if (nameVal && priceVal && quantVal == true) {
+      addptn.removeAttribute("disabled");
+    }
   }
 }
 
@@ -34,13 +35,14 @@ function chekPriceVal(productPrice) {
   if (priceRegex.test(productPrice) == false) {
     document.getElementById("productPrice").classList.add("is-invalid");
     priceVal = false;
+    addptn.setAttribute("disabled", "true");
   } else {
     document.getElementById("productPrice").classList.remove("is-invalid");
     document.getElementById("productPrice").classList.add("is-valid");
     priceVal = true;
-  }
-  if (nameVal && priceVal && quantVal == true) {
-    addptn.removeAttribute("disabled");
+    if (nameVal && priceVal && quantVal == true) {
+      addptn.removeAttribute("disabled");
+    }
   }
 }
 
@@ -49,13 +51,14 @@ function chekQuantVal(productQuant) {
   if (quantRegex.test(productQuant) == false) {
     document.getElementById("productQuantity").classList.add("is-invalid");
     quantVal = false;
+    addptn.setAttribute("disabled", "true");
   } else {
     document.getElementById("productQuantity").classList.remove("is-invalid");
     document.getElementById("productQuantity").classList.add("is-valid");
     quantVal = true;
-  }
-  if (nameVal && priceVal && quantVal == true) {
-    addptn.removeAttribute("disabled");
+    if (nameVal && priceVal && quantVal == true) {
+      addptn.removeAttribute("disabled");
+    }
   }
 }
 
