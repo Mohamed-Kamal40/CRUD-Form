@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <div class=" text-dark container">
+    <div class="text-dark container">
       <h1 class="text-center">CRUD Form</h1>
       <p class="warning">
         <strong>Note:</strong> consider the regular expression of each input and
@@ -16,7 +16,7 @@
     </div>
     <div class="container py-3 bg-light div1">
       <div class="row">
-        <div class="col-md-6 col-sm-12 form-group ">
+        <div class="col-md-6 col-sm-12 form-group">
           <label for="productName">Product Name :</label>
           <input
             onkeyup="chekNamekVal(this.value)"
@@ -28,7 +28,7 @@
             >Must start with an Upper case and be 3-8 characters long</small
           >
         </div>
-        <div class="col-md-6 col-sm-12 form-group ">
+        <div class="col-md-6 col-sm-12 form-group">
           <label for="productPrice">Product Price :</label>
           <input
             onkeyup="chekPriceVal(this.value)"
@@ -38,7 +38,7 @@
           />
           <small class="text-muted">Must be at least 1$ up to 10000$</small>
         </div>
-        <div class="col-md-4 col-sm-5 d-flex align-items-center ">
+        <div class="col-md-4 col-sm-5 d-flex align-items-center">
           <div class="custom-control custom-radio custom-control-inline">
             <input
               type="radio"
@@ -59,7 +59,7 @@
             <label class="custom-control-label" for="Sale">Sale</label>
           </div>
         </div>
-        <div class="col-md-4 col-sm-7 form-group ">
+        <div class="col-md-4 col-sm-7 form-group">
           <label for="productQuantity">Product Quantity :</label>
           <input
             onkeyup="chekQuantVal(this.value)"
@@ -71,7 +71,7 @@
             >Quantity by Number of Pieces at least 1 to 1000</small
           >
         </div>
-        <div class="col-md-4 col-sm-12 ">
+        <div class="col-md-4 col-sm-12">
           <label for="productCategory">Product Category :</label>
           <select id="productCategory" class="custom-select">
             <option selected disabled value="">Choose...</option>
@@ -83,7 +83,7 @@
           </select>
           <small class="text-muted">Device Type</small>
         </div>
-        <div class="col-12 form-group ">
+        <div class="col-12 form-group">
           <label for="producDesc">Product Description</label>
           <textarea rows="3" class="form-control" id="producDesc"></textarea>
           <small class="text-muted"
@@ -91,7 +91,12 @@
           >
         </div>
         <div class="pl-3 pt-5">
-          <button class="btn btn-outline-success" id="addPro" type="submit">
+          <button
+            disabled
+            class="btn btn-outline-success"
+            id="addPro"
+            type="submit"
+          >
             Add Product
           </button>
           <button class="btn btn-success d-none" id="updatePro" type="submit">
